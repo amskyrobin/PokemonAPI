@@ -18,23 +18,36 @@ h2 {
   margin: 0px;
   margin-left: 265px;
   color: #A0D8EA;
+  margin-bottom: 30px;
 }
 
 input {
-  float: left;
   border: none;
-  background-color: red;
-  color: white;
-  padding: 9px 9px;
-  text-align: center;
+  background-color: white;
+  color: red;
+  padding: 4px 4px;
+  font-size: 12px;
 }
 
+
 input:hover {
-  background-color: orange;
+/*  background-color: orange;*/
+  font-weight: bold;
 
 }
 
 #pokemon {
   margin: 0px;
   padding: 0px;
+  height: 230px;
+  width: 850px;
+  margin-left: 250px;
+  line-height:20px;
+
+}
+
+#pokemon-details {
+  margin-left: 350px;
+  height: 230px;
+  width: 850px;
 }

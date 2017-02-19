@@ -18,21 +18,22 @@ var requestComplete = function(){
   if(this.status != 200) return;
   var jsonString = this.responseText;
   var pokemonDetails = JSON.parse(jsonString);
-  console.log(pokemonDetails);
+  // console.log(pokemonDetails);
 
 }
 
 var populateList = function(){
-  var ul = document.getElementById('pokemon');
+  var div = document.getElementById('pokemon');
   if(this.status != 200) return;
   var jsonString = this.responseText;
   var allPokemon = JSON.parse(jsonString);
 
   pokemonArray = allPokemon.results;
-  console.log(pokemonArray)
+  // console.log(pokemonArray)
 
   pokemonArray.forEach(function(element){
     var button = document.createElement('input');
+    var divWrapper = document.createElement('divWrapper');
     button.type = 'button';
     //button.innerText = element.name;
     button.value = element.name;
@@ -44,18 +45,30 @@ var populateList = function(){
     //button.onclick = function() {
     //  console.log("clicked a button LOL");
     //};
-    appendElements(button, ul);
+    appendElements(button, divWrapper);
+    appendElements(divWrapper, div);
   });
 
 }
 
 var getPokemonURL = function(pokemonName){
-  //var pokemonName = button.value;
   var pokemonURL = "http://pokeapi.co/api/v2/pokemon/" + pokemonName + "/";
 
   makeRequest(pokemonURL, displayDetails);
   console.log(pokemonURL);
 
+}
+
+var getSpriteURL = function(){
+  var number = Math.floor(Math.random() * 150 + 1);
+    console.log(number);
+  var spriteURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + number + ".png";
+
+  
+
+    return spriteURL;
+ 
+  // console.log(spriteURL);
 
 }
 
@@ -96,8 +109,12 @@ var displayDetails = function(){
   detailThree.innerText = "Detail Three: " + pokemon;
 
   
+
   
 };
+
+
+
 
 
 var app = function(){
@@ -108,7 +125,22 @@ var app = function(){
   makeRequest(url, populateList);
 
   // button.onclick = getPokemonURL;
-  console.log(button);
+
+
+
+  //------------------------------CANVAS SHIZ -----------------------------------------//
+
+var canvas = document.querySelector('#main-canvas');
+var context = canvas.getContext('2d');
+var image = document.createElement('img');
+image.src = "" + getSpriteURL();
+
+var drawRandomPokemon = function(){
+  context.drawImage(image, 200, 200, 90, 90);
+}
+
+image.onload = drawRandomPokemon;
+
 
 }
 
