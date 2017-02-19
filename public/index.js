@@ -52,7 +52,6 @@ var populateList = function(){
     button.addEventListener("click", function(result) {
       var pokemonId = result.target.id;
       getPokemonURL(pokemonId);
-      
     }, false);
     //button.onclick = function() {
     //  console.log("clicked a button LOL");
@@ -78,12 +77,12 @@ var displayDetails = function(){
 
   if(this.status !== 200) return;
   var jsonString = this.responseText;
-  var pokemon = JSON.parse(jsonString)[0];
+  var pokemon = JSON.parse(jsonString);
 
 
   var detailOne = document.getElementById("firstDetail");
   if (detailOne === null) {
-    detailOne = document.createElement('h2');
+    detailOne = document.createElement('img');
     detailOne.id = "firstDetail";
     appendElements(detailOne, detailsContainer);
   }
@@ -102,8 +101,8 @@ var displayDetails = function(){
     appendElements(detailThree, detailsContainer);
   }
 
-  detailOne.innerText = "Detail One: " + pokemon;
-  detailTwo.innerText = "PDetail Two: " + pokemon;
+  detailOne.src = "" + pokemon.sprites.front_default;
+  detailTwo.innerText = "Weight: " + pokemon.weight;
   detailThree.innerText = "Detail Three: " + pokemon;
 
   
