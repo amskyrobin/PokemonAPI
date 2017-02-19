@@ -27,7 +27,7 @@ var populateList = function(){
   if(this.status != 200) return;
   var jsonString = this.responseText;
   var allPokemon = JSON.parse(jsonString);
-
+  // console.log(allPokemon)
   pokemonArray = allPokemon.results;
   // console.log(pokemonArray)
 
@@ -61,13 +61,13 @@ var getPokemonURL = function(pokemonName){
 
 var getSpriteURL = function(){
   var number = Math.floor(Math.random() * 150 + 1);
-    console.log(number);
+  console.log(number);
   var spriteURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + number + ".png";
 
   
 
-    return spriteURL;
- 
+  return spriteURL;
+
   // console.log(spriteURL);
 
 }
@@ -130,19 +130,49 @@ var app = function(){
 
   //------------------------------CANVAS SHIZ -----------------------------------------//
 
-var canvas = document.querySelector('#main-canvas');
-var context = canvas.getContext('2d');
-var image = document.createElement('img');
-image.src = "" + getSpriteURL();
+  var canvas = document.querySelector('#main-canvas');
+  var context = canvas.getContext('2d');
+  var image = document.createElement('img');
+  image.src = "" + getSpriteURL();
 
-var drawRandomPokemon = function(){
-  context.drawImage(image, 200, 200, 90, 90);
+  var drawRandomPokemon = function(){
+    context.drawImage(image, 0, 0, 200, 200);
+  }
+  
+  image.onload = drawRandomPokemon;
+
+
+//-----------------------------------BLACK AND WHITE ----------------------------------//
+
+
+var shadowPokemon = function(context, canvas){
+
+  var imageData = context.getImageData(0, 0, 600, 500);
+  var px = imageData.data;
+  var length = px.length;
+
+  for (var i = 0; i < length; i += 4 ) {
+    var red = px[i];
+    var green = px[i +1];
+    var blue = px[i +2];
+    var alpha = px[i +3];
+
+    var greyScale = red *.3 + green * .59 + blue * .11;
+
+    px[i] = greyScale;
+    px[i + 1] = greyScale;
+    px[i + 2] = greyScale;
+  }
+
+  context.putImageData(imageData, 0, 0);
+
 }
 
-image.onload = drawRandomPokemon;
-
-
 }
+
+
+
+
 
 
 window.onload = app;
