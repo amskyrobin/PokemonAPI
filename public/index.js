@@ -137,6 +137,7 @@ var app = function(){
 
   var drawRandomPokemon = function(){
     context.drawImage(image, 0, 0, 200, 200);
+    shadowPokemon();
   }
   
   image.onload = drawRandomPokemon;
@@ -147,7 +148,7 @@ var app = function(){
 
 var shadowPokemon = function(context, canvas){
 
-  var imageData = context.getImageData(0, 0, 600, 500);
+  var imageData = this.context.getImageData(0, 0, 600, 500);
   var px = imageData.data;
   var length = px.length;
 
