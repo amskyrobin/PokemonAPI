@@ -13,18 +13,6 @@ var makeRequest = function(url, callback){
   request.send();
 }
 
-var getPokemon = function(){
-
-  if(this.status != 200) return;
-  var jsonString = this.responseText;
-  var allPokemon = JSON.parse(jsonString);
-
-  var pokemonArray = allPokemon.results;
-  var pokemonDetails = pokemon[this.value];
-  var pokemonURL = pokemonDetails.url;
-  getDetailsRequest(pokemonURL, requestComplete);
-}
-
 
 var requestComplete = function(){
   if(this.status != 200) return;
@@ -84,6 +72,8 @@ var displayDetails = function(){
   if (detailOne === null) {
     detailOne = document.createElement('img');
     detailOne.id = "firstDetail";
+    detailOne.height = "300";
+    detailOne.width = "300";
     appendElements(detailOne, detailsContainer);
   }
 
