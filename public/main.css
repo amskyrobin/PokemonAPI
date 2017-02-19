@@ -50,4 +50,35 @@ input:hover {
   margin-left: 350px;
   height: 230px;
   width: 850px;
+  font-family: sans-serif;
+  padding-bottom: 60px;
+  font-weight: bold;
+}
+
+p#secondDetail {
+  left: 370px;
+  position: relative;
+  color: #A0D8EA;
+  font-size: 30px;
+  width: 200px;
+  bottom: 270px;
+}
+
+p#thirdDetail {
+  left: 370px;
+  bottom:250px ;
+  position: relative;
+  color: #A0D8EA;
+  font-size: 30px;
+  width:300px;
+
+}
+
+#who {
+  margin-left: 230px;
+  font-size: 93px;
+}
+
+canvas {
+  margin-left: 460px;
 }

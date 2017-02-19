@@ -106,7 +106,7 @@ var displayDetails = function(){
 
   detailOne.src = "" + pokemon.sprites.front_default;
   detailTwo.innerText = "Weight: " + pokemon.weight;
-  detailThree.innerText = "Detail Three: " + pokemon;
+  detailThree.innerText = "Base Experience: " + pokemon.base_experience;
 
   
 
@@ -134,10 +134,11 @@ var app = function(){
   var context = canvas.getContext('2d');
   var image = document.createElement('img');
   image.src = "" + getSpriteURL();
+  image.crossOrigin = "Anonymous";
 
   var drawRandomPokemon = function(){
-    context.drawImage(image, 0, 0, 200, 200);
-    shadowPokemon();
+    context.drawImage(image, 0, 0, 400, 400);
+    shadowPokemon(context, canvas);
   }
   
   image.onload = drawRandomPokemon;
@@ -148,7 +149,7 @@ var app = function(){
 
 var shadowPokemon = function(context, canvas){
 
-  var imageData = this.context.getImageData(0, 0, 600, 500);
+  var imageData = context.getImageData(0, 0, 600, 500);
   var px = imageData.data;
   var length = px.length;
 
@@ -158,7 +159,7 @@ var shadowPokemon = function(context, canvas){
     var blue = px[i +2];
     var alpha = px[i +3];
 
-    var greyScale = red *.3 + green * .59 + blue * .11;
+    var greyScale = red *.0 + green * .0 + blue * .0;
 
     px[i] = greyScale;
     px[i + 1] = greyScale;
