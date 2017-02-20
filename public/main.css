@@ -9,16 +9,24 @@ h1 {
   color: #F43F39;
   margin: 0px;
   margin-top: 30px;
-  margin-left: 250px;
+/*  margin-left: 250px;*/
+  left: 230px;
+  position: relative;
+  width:830px;
+
 }
 
 h2 {
   font-family: sans-serif;
   font-size: 30px;
   margin: 0px;
-  margin-left: 265px;
+/*  margin-left: 265px;*/
   color: #A0D8EA;
   margin-bottom: 30px;
+  position: relative;
+  left: 230px;
+
+
 }
 
 input {
@@ -27,6 +35,9 @@ input {
   color: red;
   padding: 4px 4px;
   font-size: 12px;
+  outline: none;
+  position: relative;
+
 }
 
 
@@ -40,9 +51,11 @@ input:hover {
   margin: 0px;
   padding: 0px;
   height: 230px;
-  width: 850px;
-  margin-left: 250px;
+  width: 820px;
+/*  margin-left: 250px;*/
   line-height:20px;
+  position: relative;
+  left:230px;
 
 }
 
@@ -53,6 +66,7 @@ input:hover {
   font-family: sans-serif;
   padding-bottom: 60px;
   font-weight: bold;
+
 }
 
 p#secondDetail {
@@ -75,10 +89,94 @@ p#thirdDetail {
 }
 
 #who {
-  margin-left: 230px;
+/*  margin-left: 230px;*/
+  left:230px;
   font-size: 93px;
 }
 
 canvas {
-  margin-left: 460px;
+/*  margin-left: 460px;*/
+left: 460px;
+position: relative;
+
+}
+
+#pikachu1 {
+  height: 525px;
+  width: 235px;
+  float: left;
+  z-index: 10;
+  position: absolute;
+  top: 20px;
+  left: 0px;
+}
+
+#pikachu2 {
+  height: 525px;
+  width: 250px;
+  position: absolute;
+  z-index: 10;
+  left: 1050px;
+  top: 20px;
+}
+
+#pikachu3 {
+  height: 525px;
+  width: 235px;
+  float: left;
+  z-index: 10;
+  position: absolute;
+  top: 880px;
+  left: 0px;
+  z-index: 12;
+}
+
+#pikachu4 {
+  height: 525px;
+  width: 235px;
+  float: left;
+  z-index: 10;
+  position: absolute;
+  top: 450px;
+  z-index: 11;
+  left: 0px;
+}
+
+#pikachu5 {
+  height: 525px;
+  width: 235px;
+  float: left;
+  z-index: 10;
+  position: absolute;
+  top: 1300px;
+  z-index: 13;
+  left: 0px;
+}
+
+
+#pikachu6 {
+  height: 525px;
+  width: 250px;
+  position: absolute;
+  z-index: 12;
+  left: 1050px;
+  top: 880px
+}
+
+#pikachu7 {
+  height: 525px;
+  width: 250px;
+  position: absolute;
+  z-index: 11;
+  left: 1050px;
+  top: 450px;
+}
+
+#pikachu8 {
+  height: 525px;
+  width: 250px;
+  position: absolute;
+  z-index: 13;
+  left: 1050px;
+  top: 1300px;
 }
