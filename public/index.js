@@ -135,9 +135,15 @@ var app = function(){
   var image = document.createElement('img');
   image.src = "" + getSpriteURL();
   image.crossOrigin = "Anonymous";
-  var blastoise = "https://pbs.twimg.com/profile_images/779513605167259648/won7IKIv.jpg";
+  var blastoise = new Image();
+  blastoise.src = "https://pbs.twimg.com/profile_images/779513605167259648/won7IKIv.jpg";
 
 
+
+  var drawBlastoise = function(){
+    context.drawImage(blastoise, 0, 0, 400, 400);
+    shadowPokemon(context, canvas);
+  }
 
   var drawRandomPokemon = function(){
     context.drawImage(image, 0, 0, 400, 400);
@@ -145,13 +151,7 @@ var app = function(){
   }
   
   image.onload = drawRandomPokemon;
-
-  canvas.onclick = function(event){
-
-
-    console.log(event);
-
-  }
+  canvas.onclick = drawBlastoise;
 
 
 //-----------------------------------BLACK AND WHITE ----------------------------------//
